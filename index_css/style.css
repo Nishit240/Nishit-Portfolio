@@ -1,0 +1,175 @@
+body {
+    position: relative; /* ensure compositing context */
+    z-index: 10;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(360deg, #67C090, #124170);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #DDF4E7;
+    isolation: isolate;
+}
+
+/* Navbar */
+.navbar {
+    border-radius: 2rem;
+    position: fixed;
+    top: 10px; /* reduced for small screens */
+    left: 0;
+    right: 0;
+    width: 95%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0.1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    box-sizing: border-box;
+
+    /* Glass Effect */
+    background: rgba(18, 65, 112, 0.35);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(103, 192, 144, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Container (aligns with navbar max width) */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Logo */
+.logo-img {
+  height: 60px;       /* Adjust size */
+  width: auto;        /* Keeps proportions */
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect */
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+
+/* Nav Links (Desktop) */
+/* ================= NAV LINKS ================= */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🩶 Initial Simple Look */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #DDF4E7;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding: 6px 10px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* ✨ On Hover — Activate Animation & Glow */
+.nav-links a:hover {
+  color: #001833;
+  background: rgba(221,244,231, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 40px rgba(0, 150, 255, 0.2);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding-top: 9rem; /* keep breathing room below navbar */
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        z-index: 3000;
+    }
+.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* ✅ instead of absolute — fixes backdrop filter rendering */
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 1rem 0;
+    border-radius: 1rem;
+
+    /* ✅ Glassmorphism effect (works on all browsers) */
+    background: rgba(18, 65, 112, 0.9);
+    border: 1px solid rgba(103, 192, 144, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+    /* Animation */
+    opacity: 0;
+    transform: translate(-50%, -10px);
+    transition: all 0.35s ease;
+    z-index: 3000;
+}
+
+.nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 0.7rem 0;
+        color: #DDF4E7;
+        font-size: 1rem;
+    }
+
+    .nav-links li a:hover {
+        transform: translateY(-3px);
+        color: #67C090;
+    }
+}

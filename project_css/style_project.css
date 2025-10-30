@@ -1,0 +1,282 @@
+/* ================= Projects Section ================= */
+.projects-tab-section {
+  padding: 90px 110px 30px;
+  min-height: 89vh;
+  position: relative;
+  color: #ddf4e7;
+}
+
+/* Header */
+.projects-tab-section .header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ddf4e7;
+  margin: 0;
+}
+
+.projects-tab-section .header hr {
+  margin: 10px 0 30px;
+  border: 1px solid #ddf4e7;
+}
+
+/* Subtitle */
+.projects-tab-section .projects-subtitle {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #ddf4e7;
+}
+
+/* ================= Tabs Container ================= */
+.tab-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ✅ Centers the tab group */
+  gap: 0.4rem;
+  margin: 2rem auto;
+  padding: 6px;
+  border-radius: 40px;
+  width: fit-content;
+  max-width: 95%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+
+  /* Scroll behavior for smaller screens */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar (Chrome/Safari) */
+.tab-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ Highlight stays inside each tab correctly */
+.tab-highlight {
+  position: absolute;
+  top: 5px;
+  left: -2px;
+  transform: translateX(0);
+  height: calc(100% - 10px);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.3s cubic-bezier(0.25, 1, 0.5, 1.3),
+    width 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Tabs */
+.tab {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 30px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tab.active {
+  color: #000;
+  background-color: transparent;
+}
+
+/* Tab Icons */
+.tab-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.tab:hover .tab-icon {
+  transform: scale(1.5) rotate(8deg);
+  filter: brightness(1.2);
+}
+
+/* ================= Projects Grid ================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Project Card */
+.project-card {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #124170;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  filter: brightness(1.15);
+}
+
+/* Image Area */
+.project-img-area {
+  background: #124170;
+  padding: 1rem;
+}
+
+.project-img-area img {
+  width: 100%;
+  border-radius: 0.8rem;
+  object-fit: cover;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Info Area */
+.project-info-area {
+  background: #124170;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.project-title {
+  color: #ddf4e7;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.project-tag {
+  display: inline-block;
+  background: #001933;
+  color: #ddf4e7;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-tag:hover {
+  transform: translateY(-10px);
+  border: 2px solid #001933;
+  background: #ddf4e7;
+  color: #001933;
+}
+
+.project-desc {
+  font-size: 1rem;
+  color: #ddf4e7;
+  margin-bottom: 0.5rem;
+}
+
+.project-languages {
+  font-size: 0.9rem;
+  color: #ddf4e7;
+}
+
+/* ================= Responsive ================= */
+
+/* ✅ Tablets (≤1024px) */
+@media screen and (max-width: 1024px) {
+  .projects-tab-section {
+    padding: 80px 40px 50px;
+  }
+
+  .projects-tab-section .header h1 {
+    font-size: 2.4rem;
+  }
+
+  .tab {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .tab-buttons {
+  width: fit-content;
+  max-width: 95%;
+}
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* ✅ Mobile (≤768px) */
+@media screen and (max-width: 768px) {
+  .projects-tab-section {
+    padding: 100px 25px 50px;
+  }
+
+  .projects-tab-section .header h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .tab-buttons {
+  width: fit-content;
+  max-width: 95%;;
+  }
+
+  .tab {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+/* ✅ Small Mobile (≤580px) */
+@media screen and (max-width: 580px) {
+  .projects-tab-section {
+    padding: 110px 20px 40px;
+  }
+
+  .tab-buttons {
+    justify-content: flex-start;
+    width: 85%;
+    padding: 5px 6px;
+    gap: 0.4rem;
+  }
+
+  .tab {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .tab img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

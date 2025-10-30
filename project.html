@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nishit Jain</title>
+  <link rel="icon" type="image/png" href="image/favicon_io (2)/android-chrome-192x192.png"> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index_css/style.css">
+  <link rel="stylesheet" href="project_css/style_project.css">
+    <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(180deg, #124170, #67C090);
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* behind all content */
+      pointer-events: none; /* allow clicks through canvas */
+    }
+  </style>
+</head>
+<body>
+  <!-- Canvas for starfield -->
+  <canvas></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+      <img src="image/signature.png" alt="Portfolio Logo" class="logo-img" />
+      <img src="image/bullet-point.png" class="menu-icon" alt="Menu">
+
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+        <!-- <ul class="nav-links">
+          <li><a href="https://nishitjainportfolio.netlify.app/">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="https://nishitjainportfolio.netlify.app/project">Projects</a></li>
+          <li><a href="https://nishitjainportfolio.netlify.app/contact">Contact</a></li>
+        </ul> -->
+  </nav>
+
+  <!-- Projects Section -->
+  <section class="projects-tab-section" id="projects">
+    <div class="header">
+      <h1>My Projects</h1>
+      <p class="projects-subtitle">Discover the projects that showcase my passion for design and innovation</p>
+      <hr>
+    </div>
+
+    <div class="tab-buttons">
+      <button class="tab active" data-cat="all" onclick="showTab('all', this)">
+        <img src="icons/bullbasaur.png" alt="Bulbasaur" class="tab-icon">
+        ALL
+      </button>
+      <button class="tab" data-cat="python" onclick="showTab('python', this)">Python</button>
+      <button class="tab" data-cat="ml" onclick="showTab('ml', this)">ML</button>
+      <button class="tab" data-cat="web" onclick="showTab('web', this)">Web Projects</button>
+      <button class="tab" data-cat="data" onclick="showTab('data', this)">Data Analysis</button>
+    </div>
+
+
+    <div class="projects-grid">
+      <!-- FaceTrack -->
+      <div class="project-card" data-category="ml">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            FaceTrack 
+            <a href="https://github.com/Nishit240/FaceTrack.git" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            An AI-powered attendance management system that uses face detection and recognition to automatically mark attendance. <br><br>
+            It supports real-time face capture, student record management, and CSV export functionality.
+          </p>
+          <p class="project-languages"><b>Languages :</b> Python, OpenCV, Tkinter, MySQL, ML</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/ft.png" alt="FaceTrack">
+        </div>
+      </div>
+
+      <!-- Sales Insights -->
+      <div class="project-card" data-category="data">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            Sales Insights Data Analysis 
+            <a href="https://github.com/Nishit240/sales-insights-data-analysis-project.git" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            A Power BI dashboard project that visualizes real-time sales performance using datasets processed with Python and Pandas. <br><br>
+            It helps business teams identify high-performing regions, products, and profit trends through clean, interactive analytics.
+          </p>
+          <p class="project-languages"><b>Languages :</b> Python, Power BI, Pandas</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/Sales Insights.png" alt="Sales Insights">
+        </div>
+      </div>
+
+      <!-- ALEX -->
+      <div class="project-card" data-category="python">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            Voice Assistant – ALEX 
+            <a href="https://github.com/Nishit240/Voice-Assistant---ALEX.git" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            A personal voice-controlled assistant that executes commands such as web search, app launch, and system control. <br><br>
+            Built using Python’s Speech Recognition and Pyttsx3 libraries, ALEX offers an interactive and hands-free computing experience.
+          </p>
+          <p class="project-languages"><b>Languages :</b> Python, Speech Recognition, Pyttsx3</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/alex.png" alt="ALEX">
+        </div>
+      </div>
+
+      <!-- Chatbot -->
+      <div class="project-card" data-category="ml">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            ML Chatbot – VITA  
+            <a href="https://github.com/Nishit240/Vita_Chatbot.git" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            An intelligent chatbot capable of handling FAQs and logic-based conversations using simple machine learning techniques. <br><br>
+            It features an interactive Tkinter-based GUI and uses natural language processing to respond conversationally.
+          </p>
+          <p class="project-languages"><b>Languages :</b> Python, Tkinter, ML</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/vita.png" alt="VITA">
+        </div>
+      </div>
+
+      <!-- Portfolio -->
+      <div class="project-card" data-category="web">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            Portfolio 
+            <a href="https://github.com/Nishit240/Nishit-Portfolio.git" target="_blank" class="project-tag">GitHub</a>
+            <a href="https://nishitjainportfolio.netlify.app/" target="_blank" class="project-tag">Live</a>
+          </h3>
+          <p class="project-desc">
+            A personal portfolio website designed to showcase my projects, technical skills, and professional journey. <br><br>
+            Fully responsive and modern, built using HTML, CSS, and JavaScript with smooth animations and category-based project filtering.
+          </p>
+          <p class="project-languages"><b>Languages :</b> HTML, CSS, JavaScript</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/pf.png" alt="Portfolio">
+        </div>
+      </div>
+
+      <!-- Pulse Care -->
+      <div class="project-card" data-category="web">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            Pulse Care 
+            <a href="https://github.com/Nishit240/PULSE-CARE.git" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            A healthcare web platform that allows patients to book appointments, store medical records, and access prescriptions online. <br><br>
+            Developed using PHP, MySQL, and JavaScript, it simplifies healthcare management for both doctors and patients.
+          </p>
+          <p class="project-languages"><b>Languages :</b> HTML, CSS, JavaScript, PHP, MySQL</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/pc.png" alt="Pulse Care">
+        </div>
+      </div>
+
+      <!-- The Perfect Guess -->
+      <div class="project-card" data-category="python">
+        <div class="project-info-area">
+          <h3 class="project-title">
+            Rock 🪨 Paper 📄 Scissors ✂️
+            <a href="https://github.com/Nishit240/Rock-Paper-Scissor-game" target="_blank" class="project-tag">GitHub</a>
+          </h3>
+          <p class="project-desc">
+            A fun and interactive Rock Paper Scissors game built using PySide6 with a sleek UI. <br><br>
+            Features include real-time score tracking, a reset option, and game-over summary, all powered by a modular backend and clean OOP design.
+          </p>
+          <p class="project-languages"><b>Languages :</b> Python, OOPS, If-Else, PySide6</p>
+        </div>
+        <div class="project-img-area">
+          <img src="image/Rock-Paper-Scissor.png" alt="Rock Paper Scissors">
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <script src="js/background.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/project.js"></script>
+  <script src="js/project/script_project.js"></script>
+</body>
+</html>
