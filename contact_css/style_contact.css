@@ -6,6 +6,92 @@ body {
   color: #DDF4E7;
 }
 
+/* Suggested question chips */
+.suggestions-title {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #DDF4E7;              /* match header text */
+}
+
+.suggestions-wrap {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  background: #DDF4E7;         /* light teal */
+  border: 1px solid #90c8ff;   /* soft blue border */
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.15s ease;
+  color: #001933;              /* dark text for contrast */
+}
+
+.suggestion-chip:hover {
+  background: #90c8ff;         /* blue hover */
+  color: #001933;
+}
+
+/* Spelling correction note */
+.corrected-note {
+  background: rgba(255, 248, 200, 0.95);       /* soft warm highlight */
+  border-left: 3px solid #ffcc4d;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #4a3a0d;
+}
+/* Autocomplete dropdown */
+.autocomplete-box {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #90c8ff;          /* match blue accent */
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 35px;
+  max-height: 160px;
+  max-width: 200px;/* follow parent width (input wrapper) */
+  max-width: 100%;                    /* prevent weird fixed cap */
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+  font-size: 13px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);  /* subtle shadow */
+}
+
+.autocomplete-item {
+  padding: 8px 10px;
+  cursor: pointer;
+  color: #001933;
+  white-space: nowrap;                 /* keep each suggestion in one line */
+  overflow: hidden;
+  text-overflow: ellipsis;             /* add "..." if too long */
+}
+
+.autocomplete-item:hover {
+  background: #DDF4E7;                 /* same light teal as UI */
+}
+
+/* 📱 Mobile tweaks */
+@media screen and (max-width: 580px) {
+  .autocomplete-box {
+    font-size: 12px;
+    margin-top: 35px;
+    max-height: 160px;
+    max-width: 200px;
+  }
+
+  .autocomplete-item {
+    padding: 6px 8px;
+  }
+}
+
 /* ================= Contact Section ================= */
 .contact-section {
   padding: 90px 110px 30px 110px;
@@ -136,7 +222,6 @@ body {
   align-self: flex-start;
   background: linear-gradient(180deg, #67C090, #437c5e);
   background: linear-gradient(180deg, #90c8ff, #1d77d0);
-
 }
 
 .message.bot.action {
@@ -251,32 +336,34 @@ body {
   }
 }
 
+/* Typing indicator */
 .message.bot.typing {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 18px;
-    color: #001933;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  color: #DDF4E7;                 /* match theme text */
+  background: linear-gradient(180deg, #90c8ff, #1d77d0);
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
-    background-color: #001933;
-    border-radius: 50%;
-    display: inline-block;
-    animation: blink 1.4s infinite both;
+  width: 8px;
+  height: 8px;
+  background-color: #DDF4E7;      /* light teal dots */
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.4s infinite both;
 }
 
 .dot:nth-child(2) {
-    animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .dot:nth-child(3) {
-    animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 @keyframes blink {
-    0%, 80%, 100% { opacity: 0; }
-    40% { opacity: 1; }
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
 }
