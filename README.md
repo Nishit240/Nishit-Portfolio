@@ -8,5 +8,6 @@ link : https://nishitjainportfolio.netlify.app/
 <hr>
 <img width="1901" height="984" alt="Screenshot 2026-01-17 110635" src="https://github.com/user-attachments/assets/fa25d6e8-46bc-4da3-9851-f7716246ce4b" />
 <hr>
-https://github.com/user-attachments/assets/db7b2f9e-eed3-48a9-9305-67a772850b57
+https://github.com/user-attachments/assets/3446f9bb-c401-46f7-83e9-c6c4221e5bf9
+
 
