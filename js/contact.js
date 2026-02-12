@@ -11,13 +11,6 @@ const chatMessages = document.getElementById("chat-messages");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 
-const menuIcon = document.querySelector(".menu-icon");
-const navLinks = document.querySelector(".nav-links");
-menuIcon.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-
 // const API_URL = "http://127.0.0.1:8000"; 
 const CHAT_API_URL = `${API_URL}/chat`;
 const AUTOCOMPLETE_API_URL = `${API_URL}/autocomplete`;

@@ -274,7 +274,20 @@ def chat(query: Query):
     # 1️⃣ Math expression
     if is_math_expression(original_input):
         try:
-            result = eval(re.sub(r"[^0-9+\-*/().]", "", original_input))
+            expr = original_input.strip()
+
+            # normalize symbols
+            expr = expr.replace("×", "*").replace("÷", "/")
+
+            # convert ^ to ** for exponent
+            expr = re.sub(r"\s*\^\s*", "**", expr)
+
+            # keep only safe characters
+            expr = re.sub(r"[^0-9+\-*/().%* ]", "", expr)
+
+            # safe evaluation (BODMAS handled by Python)
+            result = eval(expr, {"__builtins__": None}, {})
+
             answer = f"The result is: {result}"
             add_to_memory(session_id, original_input, answer)
             return {

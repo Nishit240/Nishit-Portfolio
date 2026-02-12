@@ -6,8 +6,8 @@
   <link rel="icon" type="image/png" href="image/favicon_io (2)/android-chrome-192x192.png"> 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index_css/style.css">
-  <link rel="stylesheet" href="project_css/style_project.css">
+  <link rel="stylesheet" href="css/index_css/style.css">
+  <link rel="stylesheet" href="css/project_css/style_project.css">
     <style>
     body {
       margin: 0;
@@ -27,7 +27,7 @@
     }
   </style>
 </head>
-<body>
+<body class="page-project">
   <!-- Canvas for starfield -->
   <canvas></canvas>
 
@@ -37,14 +37,27 @@
       <img src="image/bullet-point.png" class="menu-icon" alt="Menu">
 
       <!-- <ul class="nav-links">
+        <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Toggle Theme">
+                      <span class="icon"></span>
+                      <span class="text"></span>
+                    </button>
+                  </div>
           <li><a href="index.html">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="project.html">Projects</a></li>
           <li><a href="contact.html">Contact</a></li>
       </ul> -->
+
         <ul class="nav-links">
+          <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Toggle Theme">
+                      <span class="icon"></span>
+                      <span class="text"></span>
+                    </button>
+                  </div>
           <li><a href="https://nishitjainportfolio.netlify.app/">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <!-- <li><a href="#about">About</a></li> -->
           <li><a href="https://nishitjainportfolio.netlify.app/project">Projects</a></li>
           <li><a href="https://nishitjainportfolio.netlify.app/contact">Contact</a></li>
         </ul>
@@ -207,5 +220,7 @@
   <script src="js/script.js"></script>
   <script src="js/project.js"></script>
   <script src="js/project/script_project.js"></script>
+  <script src="js/theme.js"></script>
+
 </body>
 </html>

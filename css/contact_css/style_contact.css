@@ -1,0 +1,592 @@
+/* ================= General ================= */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #124170, #67C090);
+  color: #DDF4E7;
+}
+
+body:not(.light)  {
+  background: linear-gradient(180deg, #000000, #151515);
+  color: #ffffff;
+}
+
+
+
+/* Suggested question chips */
+.suggestions-title {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #DDF4E7;              /* match header text */
+}
+
+.suggestions-wrap {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  background: #DDF4E7;         /* light teal */
+  border: 1px solid #90c8ff;   /* soft blue border */
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.15s ease;
+  color: #001933;              /* dark text for contrast */
+}
+
+.suggestion-chip:hover {
+  background: #90c8ff;         /* blue hover */
+  color: #001933;
+}
+
+body:not(.light) .suggestion-chip {
+  background: rgba(255, 165, 0, 0.15);
+  border: 1px solid rgba(255, 165, 0, 0.35);
+  color: #ff9c40;
+}
+
+body:not(.light) .suggestion-chip:hover {
+  background: #ff9c40;
+  color: #020617;
+}
+
+
+/* Spelling correction note */
+.corrected-note {
+  background: rgba(255, 248, 200, 0.95);       /* soft warm highlight */
+  border-left: 3px solid #ff9c40;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #4a3a0d;
+}
+/* ================= AUTOCOMPLETE – HORIZONTAL ABOVE INPUT ================= */
+
+/* Anchor */
+.chat-input {
+  position: relative;
+}
+
+/* Suggestion container */
+.autocomplete-box {
+  position: absolute;
+  bottom: calc(100% + 0px);   /* 👈 ABOVE input */
+  left: 0;
+  width: 98.5%;
+
+  display: none;              /* show via JS */
+  flex-direction: row;
+  gap: 8px;
+
+  padding: 8px;
+  background: #ffffff;
+  overflow-x: auto;           /* 👈 horizontal scroll */
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  z-index: 200;
+}
+
+/* Hide scrollbar (clean keyboard look) */
+.autocomplete-box::-webkit-scrollbar {
+  display: none;
+}
+.autocomplete-box {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Each suggestion = chip */
+.autocomplete-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  font-size: 13px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background: #DDF4E7;
+  color: #001933;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+/* Hover / tap */
+.autocomplete-item:hover {
+  background: #90c8ff;
+  transform: translateY(-1px);
+}
+
+body:not(.light) .autocomplete-box {
+  background: #f4eadd;
+}
+
+body:not(.light) .autocomplete-item {
+  background: #ffffff;
+  color: #ff9c40;
+}
+
+body:not(.light) .autocomplete-item:hover {
+  background: #ff9c40;
+  color: #ffffff;
+}
+@media screen and (max-width: 580px) {
+  .autocomplete-box {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .autocomplete-item {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* ================= Contact Section ================= */
+.contact-section {
+  padding: 80px 110px 5px 110px;
+  min-height: 89vh;
+  position: relative;
+}
+
+/* Header */
+.header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #DDF4E7;
+  margin: 0;
+}
+
+.header hr {
+  margin: 10px 0 30px;
+  border: 1px solid #DDF4E7;
+}
+
+body:not(.light) .header h1 {
+  color: #ffffff;
+  text-shadow: 0 0 25px rgba(255, 165, 0, 0.35);
+}
+
+body:not(.light) .header hr {
+  border-color: #ffb000;
+}
+
+/* ================= Chat Container ================= */
+.chat-container {
+  max-width: 900px;
+  height: 480px; /* fixed height for desktop */
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 7px 7px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1); /* subtle transparency for mobile readability */
+}
+
+body:not(.light) .chat-container {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Top Bar */
+.chat-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #DDF4E7;
+  font-size: 0.9rem;
+}
+
+.email-pill {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #001933;
+}
+.email-pill:hover {
+  background: #1d77d0;
+  color: #DDF4E7;
+}
+
+body:not(.light) .chat-topbar {
+background: #f4eadd;
+color: #ff9c40;
+}
+
+body:not(.light) .email-pill:hover {
+  background: #ff9c40;
+  color: #fff;
+}
+
+
+.social-icons i {
+  margin-left: 10px;
+  color: #001933;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.social-icons i:hover{
+  color: #1d77d0;
+}
+
+body:not(.light) .social-icons i:hover {
+  color: #ff9c40;
+}
+
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  background: rgba(240, 240, 240, 0.2);
+}
+
+body:not(.light) .chat-messages {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* Messages */
+.message {
+  padding: 12px 15px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+body:not(.light) .message.bot {
+  background: linear-gradient(0deg, #000000, #333333);
+  color: #ff9c40;
+}
+
+body:not(.light) .message.bot.action {
+  background: rgba(255, 165, 0, 0.25);
+  color: #020617;
+}
+
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.avatar img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin: 0 5px;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+.user-avatar {
+  margin-left: 5px;
+  margin-right: 0px;
+}
+
+.message.bot {
+  /* background-color: #67C090; */
+  color: #001933;
+  align-self: flex-start;
+  background: linear-gradient(180deg, #67C090, #437c5e);
+  background: linear-gradient(180deg, #90c8ff, #1d77d0);
+}
+
+.message.bot.action {
+  background: linear-gradient(180deg, #67C090, #67C090);
+  background-color: #67C090;
+  color: #001933;
+}
+
+.message.user {
+  background: linear-gradient(180deg, #ffb000, #fff800);  
+  color: #001933;
+  align-self: flex-end;
+}
+
+body:not(.light) .message.user {
+  background: linear-gradient(180deg, #f59e0b, #fff800);
+  color: #020617;
+}
+/* ================= Input Area ================= */
+.chat-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #DDF4E7;
+  background: #DDF4E7;
+  box-sizing: border-box;
+
+}
+
+.chat-input input {
+  flex: 1 1 auto;             /* grow + shrink properly */
+    min-width: 0;               /* IMPORTANT for flex overflow fix */
+
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #DDF4E7;
+  outline: none;
+  font-size: 1rem;
+}
+
+.chat-input button {
+    flex: 0 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #3f9fff;
+  color: #001933;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.chat-input button:hover {
+  background: #90c8ff;
+  color: #001933;
+}
+
+body:not(.light) .chat-input {
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+body:not(.light) .chat-input input {
+  background: #f4eadd;
+  color: #000000;
+  border: 1px solid rgba(255, 165, 0, 0.35);
+}
+
+body:not(.light) .chat-input button {
+  background: #ff9c40;
+  color: #020617;
+}
+
+body:not(.light) .chat-input button:hover {
+  background: #ffcc9c;
+}
+
+
+/* ================= Scrollbar Styling ================= */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.social-icons a {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: #DDF4E7;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover { color: #001933; }
+
+/* ================= Responsive ================= */
+@media screen and (max-width: 1024px) {
+  .contact-section {
+    padding: 73px 30px 4px 30px;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+  .chat-container {
+    max-width: 700px;
+    height: 480px;
+  }
+}
+
+
+
+/* ================= MOBILE CHAT – WHATSAPP STYLE ================= */
+@media screen and (max-width: 580px) {
+
+  /* Prevent background scrolling */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Hide page heading + HR */
+  .header {
+    display: none;
+  }
+
+  /* Contact section becomes container only */
+  .contact-section {
+    padding: 0;
+    min-height: 100vh;
+  }
+
+.chat-container {
+  position: fixed;
+  top: 86px;                 /* ⬅️ was 70px */
+  left: 0;
+   width: 100%;
+    height: calc(100dvh - 86px); /* ✅ dynamic viewport */
+  max-width: none;
+  border-radius: 0;
+  margin: 0;
+  display: flex;
+  z-index: 100;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .chat-container {
+    height: -webkit-fill-available;
+  }
+}
+
+  /* Messages area grows properly */
+  .chat-messages {
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+  }
+
+  /* Input fixed at bottom */
+  .chat-input {
+    padding: 10px;
+    border-radius: 0;
+    margin-bottom: 10px; 
+
+  }
+
+  /* Topbar sticks */
+  .chat-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+  }
+
+  /* Show close button */
+  .chat-close-btn {
+    display: block;
+  }
+
+.chat-topbar { 
+  display: block; 
+  text-align: center; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px; 
+  background: #DDF4E7; 
+  font-size: 0.9rem; 
+}
+
+  .social-icons a {
+  margin-right: 0rem;
+  font-size: 1.5rem;
+  color: #DDF4E7;
+  transition: color 0.3s;
+}
+}
+
+
+/* Typing indicator */
+.message.bot.typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  color: #DDF4E7;                 /* match theme text */
+  background: linear-gradient(180deg, #90c8ff, #1d77d0);
+}
+
+body:not(.light) .message.bot.typing {
+   background: linear-gradient(0deg, #000000, #333333);
+  color: #ff9c40;
+}
+
+body:not(.light) .dot {
+  background-color: #ff9c40;
+}
+
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #DDF4E7;      /* light teal dots */
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1.4s infinite both;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+
+/* ================= NAV GLOW EFFECTS ================= */
+
+.nav-links a.active {
+  background: #ffffff;
+  color: #ff9c40;
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
+}
+
+/* Extra glow ONLY for Contact */
+.nav-links a.contact-active {
+  box-shadow:
+    0 0 20px rgba(255, 165, 0, 0.9),
+    0 0 40px rgba(255, 165, 0, 0.6);
+}

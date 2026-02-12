@@ -1,0 +1,509 @@
+/* ================= BODY ================= */
+
+/* LIGHT MODE (DEFAULT) */
+body {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+
+  background: linear-gradient(360deg, #67C090, #124170);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  color: #DDF4E7;
+  isolation: isolate;
+
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* DARK MODE (FIXED) */
+body:not(.light) {
+  background: linear-gradient(180deg, #000000, #151515);
+  color: #e5e7eb;
+}
+
+
+/* Navbar */
+.navbar {
+    border-radius: 2rem;
+    position: fixed;
+    top: 10px; /* reduced for small screens */
+    left: 0;
+    right: 0;
+    width: 95%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0.1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    box-sizing: border-box;
+
+    /* Glass Effect */
+    background: rgba(18, 65, 112, 0.35);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(103, 192, 144, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: background 0.4s ease, border 0.4s ease;
+}
+
+body:not(.light) .navbar {
+  background: rgba(29, 88, 146, 0.123);
+  border: 1px solid rgba(255, 123, 0, 0.321);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Container (aligns with navbar max width) */
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Logo */
+.logo-img {
+  height: 60px;       /* Adjust size */
+  width: auto;        /* Keeps proportions */
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect */
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+
+/* Nav Links (Desktop) */
+/* ================= NAV LINKS ================= */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🩶 Initial Simple Look */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #DDF4E7;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding: 6px 10px;
+  border-radius: 50px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+    body:not(.light) .nav-links li a:hover {
+      color: #ff9c40;
+    }
+
+/* ✨ On Hover — Activate Animation & Glow */
+.nav-links a:hover {
+  color: #001833;
+  background: rgba(221, 244, 231, 0.385);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 40px rgba(0, 150, 255, 0.2);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease;
+}
+  /* DARK MODE NAV LINKS */
+body:not(.light) .nav-links a {
+  color: #e5e7eb;
+}
+
+body:not(.light) .nav-links a:hover {
+  background: rgb(255, 255, 255, 0.385);
+    box-shadow:
+    0 0 20px rgba(255, 149, 0, 0.25),
+    0 0 40px rgba(255, 128, 0, 0.2);
+  color: #ffffff;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer; 
+}
+
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding-top: 9rem; /* keep breathing room below navbar */
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        z-index: 3000;
+    }
+.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* ✅ instead of absolute — fixes backdrop filter rendering */
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 1rem 0;
+    border-radius: 1rem;
+
+    /* ✅ Glassmorphism effect (works on all browsers) */
+    background: rgba(18, 65, 112, 0.9);
+    border: 1px solid rgba(103, 192, 144, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+    /* Animation */
+    opacity: 0;
+    transform: translate(-50%, -10px);
+    transition: all 0.35s ease;
+    z-index: 3000;
+}
+
+.nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+  body:not(.light) .nav-links {
+    background: rgba(0, 0, 0, 0.94);
+    border: 1px solid rgba(255, 123, 0, 0.321);
+  }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+        padding: 0.7rem 0;
+        color: #DDF4E7;
+        font-size: 1rem;
+    }
+
+    .nav-links li a:hover {
+        transform: translateY(-3px);
+        color: #67C090;
+    }
+
+    body:not(.light) .nav-links li a:hover {
+      transform: translateY(-3px);
+      color: #ff9c40;
+    }
+
+}
+/* ================= ACTIVE NAV LINK ================= */
+.nav-links a.active {
+  background: rgba(221,244,231, 0.95);
+  color: #001833;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 40px rgba(0, 150, 255, 0.2);
+}
+
+/* Dark mode glow */
+body:not(.light) .nav-links a.active {
+  background: rgb(255, 255, 255);
+  color: #ff9c40;
+    box-shadow:
+    0 0 20px rgba(255, 149, 0, 0.25),
+    0 0 40px rgba(255, 128, 0, 0.2);
+}
+
+
+/* ================= THEME TOGGLE (STATE BASED) ================= */
+
+/* .theme-toggle {
+  margin-left: 20px;
+} */
+
+/* Base Button */
+#themeToggle {
+  width: 78px;
+  height: 29px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: #e6e6e6;
+  box-shadow:
+    inset 4px 4px 8px rgba(0,0,0,0.15),
+    inset -4px -4px 8px rgba(255,255,255,0.8);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  margin-right: 2px;
+}
+
+/* Sliding Knob (COMMON) */
+#themeToggle::before {
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #ffffff;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+/* Icon (COMMON) */
+#themeToggle .icon {
+  position: absolute;
+  width: 15px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+  z-index: 2;
+}
+
+/* Text (COMMON) */
+#themeToggle .text {
+  flex: 1;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #777;
+  z-index: 2;
+}
+
+/* ================= LIGHT MODE ================= */
+
+body.light #themeToggle {
+  background:#67C090;
+  box-shadow:
+    inset 3px 3px 6px rgba(0,0,0,0.4),
+    inset -3px -3px 6px rgb(255, 255, 255);
+}
+
+/* Knob on RIGHT */
+body.light #themeToggle::before {
+  transform: translate(47px, -50%);
+  background: #ffffff;
+}
+
+/* Sun inside knob */
+body.light #themeToggle .icon {
+  right: 8px;
+}
+
+body.light #themeToggle .icon::before {
+  content: "☀︎";
+  color: #f6b533;
+}
+
+/* Text on LEFT */
+body.light #themeToggle .text {
+  margin-right: 51px;
+  color: #ffffff;
+}
+
+body.light #themeToggle .text::before {
+  content: "LIGHT MODE";
+}
+
+/* ================= DARK MODE ================= */
+
+body:not(.light) #themeToggle {
+  background: #3a3f45;
+  box-shadow:
+    inset 3px 3px 6px rgba(0,0,0,0.6),
+    inset -3px -3px 6px rgba(255,255,255,0.08);
+}
+
+/* Knob on LEFT */
+body:not(.light) #themeToggle::before {
+  transform: translate(0, -50%);
+  background: #f1f1f1;
+}
+
+/* Moon inside knob */
+body:not(.light) #themeToggle .icon {
+  left: 8px;
+}
+
+body:not(.light) #themeToggle .icon::before {
+  content: "⏾";
+}
+
+/* Text on RIGHT */
+body:not(.light) #themeToggle .text {
+  margin-left: 35px;
+  color: #d1d5db;
+}
+
+body:not(.light) #themeToggle .text::before {
+  content: "DARK MODE";
+}
+
+/* ================= INTRO SCREEN ================= */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0c0c0c, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px; /* space between logo & button */
+}
+
+
+.intro-logo {
+  width: 200px;
+  opacity: 0;
+  animation: logoFade 1.5s ease forwards;
+}
+
+@keyframes logoFade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* START BUTTON – SLIDING HOVER EFFECT */
+.start-btn {
+  position: relative;
+  padding: 14px 48px;
+  font-size: 14px;
+  letter-spacing: 4px;
+
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+
+  transition: color 0.4s ease, border-color 0.4s ease;
+  z-index: 1;
+}
+
+/* Sliding background layer */
+.start-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: #f89838;
+  z-index: -1;
+
+  transition: all 0.4s ease;
+}
+
+/* Hover animation */
+.start-btn:hover::before {
+  left: 0;
+}
+
+/* Text + border color change */
+.start-btn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+
+/* Exit animation */
+#intro-screen.hide {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+/* Disable scroll while intro is visible */
+body.intro-active {
+  overflow: hidden;
+}
+/* ================= NAV ACTIVE – LIGHT MODE ================= */
+
+/* Projects */
+body.page-project .nav-links a[href="project.html"],
+body.page-project .nav-links a[href="https://nishitjainportfolio.netlify.app/project"] {
+  background: rgba(221, 244, 231, 0.95);
+  color: #001833;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 40px rgba(0, 150, 255, 0.2);
+}
+
+/* Contact */
+body.page-contact .nav-links a[href="contact.html"],
+body.page-contact .nav-links a[href="https://nishitjainportfolio.netlify.app/contact"] {
+  background: rgba(221, 244, 231, 0.95);
+  color: #001833;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.25),
+    0 0 40px rgba(0, 150, 255, 0.2);
+}
+
+
+/* ================= NAV ACTIVE – DARK MODE ================= */
+
+body:not(.light).page-project .nav-links a[href="project.html"],
+body:not(.light).page-project .nav-links a[href="https://nishitjainportfolio.netlify.app/project"] {
+  background: rgb(255, 255, 255);
+  color: #ff9c40;
+  border: none;
+  box-shadow:
+    0 0 20px rgba(255, 149, 0, 0.25),
+    0 0 40px rgba(255, 128, 0, 0.2);
+}
+
+body:not(.light).page-contact .nav-links a[href="contact.html"],
+body:not(.light).page-contact .nav-links a[href="https://nishitjainportfolio.netlify.app/contact"] {
+  background: rgb(255, 255, 255);
+  color: #ff9c40;
+  border: none;
+  box-shadow:
+    0 0 20px rgba(255, 149, 0, 0.25),
+    0 0 40px rgba(255, 128, 0, 0.2);
+}

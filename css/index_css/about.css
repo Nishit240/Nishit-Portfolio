@@ -1,0 +1,340 @@
+/* About Section */
+.about-section {
+  min-height: 80vh;
+  background: #124170 url("image/bg-pattern.png") repeat;
+  background-size: contain;
+  padding: 6rem 2rem;
+  color: #DDF4E7;
+  background: linear-gradient(360deg, #124170, #67C090); 
+
+}
+/* ================= ABOUT – DARK MODE ================= */
+body:not(.light) .about-section {
+  background: linear-gradient(360deg, #000000, #151515);
+  color: #f3f4f6;
+}
+
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Left column */
+.about-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+}
+
+.about-illustration {
+  width: 330px;
+  height: 330px;
+  border-radius: 76% 24% 87% 13% / 55% 73% 27% 45%;
+  border: 6px solid rgba(103, 192, 144, 0.8);
+  box-shadow: 0 8px 25px rgba(103, 192, 144, 0.5);
+  object-fit: contain;
+  z-index: 2;
+  position: relative;
+  transition: transform 2s ease, box-shadow 2s ease; /* Smooth transition */
+    z-index: 10;
+}
+
+.about-abstract-shapes {
+  position: absolute;
+  top: -20px;
+  left: -30px;
+  /* width: 350px; */
+  height: 350px;
+  background: radial-gradient(circle at 30% 30%, #67C090, transparent 70%),
+              radial-gradient(circle at 70% 70%,#67C090, transparent 70%);
+  filter: blur(80px);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.about-right {
+  text-align: center;
+  max-width: 750px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2.5rem 2.8rem;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
+  margin: auto;
+}
+
+body:not(.light) .about-right {
+  border: 1px solid rgba(255, 165, 0, 0.18);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.about-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  color: #ecfdf5;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+body:not(.light) .about-heading {
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(255, 165, 0, 0.25);
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(221, 244, 231, 0.92);
+  margin-bottom: 1.4rem;
+}
+
+body:not(.light) .about-text {
+  color: #d1d5db;
+}
+
+body:not(.light) .about-text strong {
+  color: #ff9c40; /* orange highlight */
+}
+
+
+.about-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+.about-text.with-icon {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(103, 192, 144, 0.15);
+  border-left: 4px solid #67C090;
+  padding: 1.2rem 1.4rem;
+  border-radius: 12px;
+  margin-top: 1.6rem;
+}
+
+body:not(.light) .about-text.with-icon {
+  background: rgba(255, 165, 0, 0.12);
+  border-left: 4px solid #ff9c40;
+  color: #f3f4f6;
+}
+
+
+.about-icon {
+  font-size: 1.4rem;
+  margin-top: 2px;
+}
+body:not(.light) .about-illustration {
+  border: 6px solid rgba(245, 158, 11, 0.85);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.55);
+}
+
+.Hobbie-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-top: 100px;
+  margin-bottom: 1.8rem;
+  color: #ecfdf5;
+  letter-spacing: 0.5px;
+}
+
+body:not(.light) .Hobbie-heading {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 165, 0, 0.35);
+}
+
+
+.Hobbie-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .Hobbie-icon {
+  z-index: 10;
+  width: 160px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.Hobbie-icon:hover {
+  transform: translateY(-10px);
+  filter: brightness(1.15);
+}
+
+.hobbie-img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  margin-right: 5px;
+}
+
+.hobby-text {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #DDF4E7;
+  display: flex;
+  justify-content: center;
+}
+
+.hobby-text span {
+  position: relative;
+  display: inline-block;
+  animation: floatAnim 1s ease-in-out infinite alternate;
+  text-shadow: 0 1px 0 #b7b7b7, 0 2px 0 #b7b7b7,0 10px 10px rgba(0, 0, 0, 1);
+}
+
+/* Stagger animation delay for each letter */
+.hobby-text span:nth-child(1)  { animation-delay: 0.1s; }
+.hobby-text span:nth-child(2)  { animation-delay: 0.2s; }
+.hobby-text span:nth-child(3)  { animation-delay: 0.3s; }
+.hobby-text span:nth-child(4)  { animation-delay: 0.4s; }
+.hobby-text span:nth-child(5)  { animation-delay: 0.5s; }
+.hobby-text span:nth-child(6)  { animation-delay: 0.6s; }
+.hobby-text span:nth-child(7)  { animation-delay: 0.7s; }
+.hobby-text span:nth-child(8)  { animation-delay: 0.8s; }
+.hobby-text span:nth-child(9)  { animation-delay: 0.9s; }
+.hobby-text span:nth-child(10) { animation-delay: 1s; }
+
+
+@keyframes floatAnim {
+  0% { top: 0px; }
+  100% { top: -10px; }
+}
+
+@media (max-width: 865px) {
+  .about-right {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .about-heading {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .about-text.with-icon {
+    text-align: left;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-right {
+    margin-top: 2rem;
+  }
+}
+
+.about-text.with-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+/* Jelly keyframes */
+@keyframes jelly {
+  0%   { transform: scale(1,1); }
+  25%  { transform: scale(1.05,0.95); }
+  50%  { transform: scale(0.95,1.05); }
+  75%  { transform: scale(1.02,0.98); }
+  100% { transform: scale(1,1); }
+}
+
+/* Optional: repeat every few seconds */
+.about-text.with-icon:hover {
+  animation: jelly 1s ease forwards;
+}
+
+.about-text:hover {
+  animation: jelly 1s ease forwards;
+}
+
+
+/* Responsive for small mobile devices (360px width) */
+@media (max-width: 430px) {
+    .about-right {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    max-width: 100%;
+    }
+  .about-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .about-left, .about-right {
+    flex: unset;
+  }
+
+  .about-illustration {
+    width: 180px;
+    height: 180px;
+    border-width: 4px;
+  }
+
+  .about-abstract-shapes {
+    height: 200px;
+    top: -10px;
+    left: -10px;
+    filter: blur(50px);
+  }
+
+  .about-heading {
+    font-size: 1.8rem;
+  }
+
+  .about-text, .about-text.with-icon {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    max-width: 95%;
+    margin: 0.8rem auto;
+  }
+
+  .Hobbie-heading {
+    font-size: 1.5rem;
+  }
+
+  .Hobbie-icons {
+    gap: 0.9rem;
+  }
+
+  .Hobbie-icon {
+    width: 120px;
+    height: 70px;
+  }
+
+  .hobbie-img {
+    width: 45px;
+  }
+
+  .hobby-text {
+    font-size: 1rem;
+  }
+}
