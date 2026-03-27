@@ -1,6 +1,4 @@
 <h1 align="center"> Portfolio </h1>
----
-
 ## 🚀 Live
 👉 link : https://nishitjainportfolio.netlify.app/
 <hr>
